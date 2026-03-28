@@ -1,0 +1,12 @@
+# Project exclude paths
+/.gradle/
+/android-sample/build/
+/desktop-sample/build/
+/desktop-sample/build/classes/kotlin/jvm/main/
+/ktor/build/
+/ktor/build/classes/kotlin/jvm/main/
+/ktor/build/classes/kotlin/jvm/test/
+/okhttp/build/
+/shared/build/
+/shared/build/classes/kotlin/jvm/main/
+/shared/build/classes/kotlin/jvm/test/
