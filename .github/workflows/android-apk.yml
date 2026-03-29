@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout Source Code
@@ -39,3 +41,17 @@ jobs:
       with:
         name: android-sample-release
         path: android-sample/build/outputs/apk/release/android-sample-release-unsigned.apk
+
+    - name: Create Global Release
+      uses: softprops/action-gh-release@v2
+      if: github.ref == 'refs/heads/master'
+      with:
+        tag_name: latest
+        name: Latest Build
+        draft: false
+        prerelease: false
+        files: |
+          android-sample/build/outputs/apk/debug/android-sample-debug.apk
+          android-sample/build/outputs/apk/release/android-sample-release-unsigned.apk
+        generate_release_notes: true
+        allow_updates: true
